@@ -1,3 +1,25 @@
+## 加入项目步骤：  
+
+1. 根目录下build.gradle添加  
+
+```
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```  
+
+2. 项目Add the dependency  
+
+```
+dependencies {
+	        implementation 'com.github.tuyrt7:PermissionIpml:Tag'
+	}
+```  
+
+
 ## permission模块：动态权限申请
 1.链式调用  
 2.可以activity/fragment申请（内部创建fragment继承自androidx.fragment.app.fragment）  
