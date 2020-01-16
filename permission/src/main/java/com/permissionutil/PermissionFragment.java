@@ -10,18 +10,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.SparseArray;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 public class PermissionFragment extends Fragment implements Runnable {
 
@@ -34,10 +30,7 @@ public class PermissionFragment extends Fragment implements Runnable {
 
     private PermissionListener listener;
     private List<String> permissions;
-    /**
-     回调对象存放
-     */
-    private static final SparseArray<PermissionListener> PERMISSION_ARRAY = new SparseArray<>();
+
     /**
      请求码
      */
@@ -63,7 +56,6 @@ public class PermissionFragment extends Fragment implements Runnable {
 
     @TargetApi(Build.VERSION_CODES.M)
     public void requestPermissions() {
-        Log.d(TAG, "requestPermissions: ");
         if (permissions.contains(Permission.REQUEST_INSTALL_PACKAGES) && !isHasInstallPermission(getActivity()) && !isInstallApply) {
             isInstallApply = true;
             // 跳转到允许安装未知来源设置页面
@@ -134,7 +126,6 @@ public class PermissionFragment extends Fragment implements Runnable {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.i(TAG, "onActivityResult: " + requestCode);
         if (requestCode == REQUEST_CODE) {
             // 需要延迟执行，不然有些华为机型授权了但是获取不到权限
             HANDLER.postDelayed(this, 500);
@@ -153,11 +144,11 @@ public class PermissionFragment extends Fragment implements Runnable {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        Log.i(TAG, "onRequestPermissionsResult: " + requestCode);
         if (requestCode != REQUEST_CODE) {
             return;
         }
 
+        //特殊权限被拒绝list
         List<String> deniedSpecialPermissionList = new ArrayList<>();
         for (int i = 0; i < permissions.length; i++) {
             // 重新检查安装权限
@@ -190,7 +181,8 @@ public class PermissionFragment extends Fragment implements Runnable {
         }
 
         if (grantResults.length > 0) {
-            List<String> deniedPermissionList = new ArrayList<>();//用来保存被拒绝的权限
+            //用来保存被拒绝的权限
+            List<String> deniedPermissionList = new ArrayList<>();
             for (int i = 0; i < grantResults.length; i++) {
                 if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
                     deniedPermissionList.add(permissions[i]);
@@ -201,7 +193,7 @@ public class PermissionFragment extends Fragment implements Runnable {
                 //已经全部授权
                 permissionAllGranted();
             } else {
-                //已拒绝去除特殊权限
+                //已拒绝权限中去除特殊权限
                 if (!deniedSpecialPermissionList.isEmpty()) {
                     deniedPermissionList.removeAll(deniedSpecialPermissionList);
                 }
