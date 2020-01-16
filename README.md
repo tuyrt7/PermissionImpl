@@ -56,6 +56,17 @@ dependencies {
                         Toast.makeText(getContext(), "Fragment 获取所有的权限", Toast.LENGTH_SHORT).show();
                     }
                 });
+                
+  //简单使用
+   PermissionImpl.newPermission()
+                .activity(this)
+                .permission(per)
+                .requestPermission(new AdapterPermissionListener() {
+                    @Override
+                    public void onGranted() {
+                        Toast.makeText(PermissionActivity.this, "所有权限都已授权", Toast.LENGTH_SHORT).show();
+                    }
+                });
 ```
 
 ##### 有问题，欢迎指正。联系邮箱：tuyrt7@163.com
