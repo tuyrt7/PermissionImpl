@@ -12,6 +12,8 @@ allprojects {
     repositories {
         ...
         maven { url 'https://jitpack.io' }
+        //or 审核通过后可去掉
+        //maven { url 'https://dl.bintray.com/tuyrt007/tuyrt/' }
     }
 }
 
@@ -22,6 +24,9 @@ allprojects {
 ```
 dependencies {
     implementation 'com.github.tuyrt7:PermissionImpl:v1.0.2'
+    
+    //or
+    //implementation 'com.tuyrt:permissionimpl:1.0.0'
 }
 ```  
 

@@ -1,4 +1,21 @@
 apply plugin: 'com.android.library'
+apply plugin: 'guru.stefma.bintrayrelease'
+
+version="1.0.0" //版本号
+group = "com.tuyrt" //jcenter的路径，如：compile 'com.squareup.okhttp3:okhttp:3.8.1' 所填写的就是 com.squareup
+publish {
+    repoName = 'tuyrt'
+    userOrg = 'tuyrt007'//bintray.com用户名
+    //groupId = 'com.tuyrt007.tuyrt'//jcenter上的路径
+    artifactId = 'permissionimpl'//项目名称
+    desc = 'permission request'//描述，不重要
+    website = 'https://tuyrt7.github.io/'//网站，最好有，不重要
+}
+//配置命令：PbintrayUser用户名，PbintrayKey是ApiKey，PdryRun=false表示上传
+//gradlew clean build bintrayUpload
+// -PbintrayUser=tuyrt007
+// -PbintrayKey=2edf63526007e46f125f7a0700789674b0fc1152
+// -PdryRun=false
 
 android {
     compileSdkVersion 29
