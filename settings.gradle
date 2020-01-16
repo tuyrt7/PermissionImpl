@@ -1,2 +1,2 @@
 include ':app', ':permission'
-rootProject.name='PermissionIpml'
+rootProject.name='PermissionImpl'

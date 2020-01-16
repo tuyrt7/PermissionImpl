@@ -4,19 +4,19 @@
 
 ```
 allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
 	}
+}
 ```  
 
 2. 项目Add the dependency  
 
 ```
 dependencies {
-	        implementation 'com.github.tuyrt7:PermissionIpml:Tag'
-	}
+	implementation 'com.github.tuyrt7:PermissionImpl:v1.0.1'
+}
 ```  
 
 
