@@ -1,7 +1,6 @@
 ## 效果图  
 
-![一直弹窗申请，直到授权](https://upload-images.jianshu.io/upload_images/4430423-b58fe635864386cb.gif)  
-
+![一直弹窗申请，直到授权](https://upload-images.jianshu.io/upload_images/4430423-b58fe635864386cb.gif)
 ![申请后被拒绝，弹窗提示，可以取消](https://upload-images.jianshu.io/upload_images/4430423-74f98e1a336d11ba.gif)  
 
 ## 加入项目步骤：  
