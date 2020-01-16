@@ -40,8 +40,15 @@ public class Permission {
     public static final String READ_EXTERNAL_STORAGE = "android.permission.READ_EXTERNAL_STORAGE";
     public static final String WRITE_EXTERNAL_STORAGE = "android.permission.WRITE_EXTERNAL_STORAGE";
 
-    public static final String REQUEST_INSTALL_PACKAGES = "android.permission.REQUEST_INSTALL_PACKAGES"; // 8.0及以上应用安装权限
-    public static final String SYSTEM_ALERT_WINDOW = "android.permission.SYSTEM_ALERT_WINDOW"; // 6.0及以上悬浮窗权限
+    // 8.0及以上应用安装权限
+    public static final String REQUEST_INSTALL_PACKAGES = "android.permission.REQUEST_INSTALL_PACKAGES";
+    // 6.0及以上悬浮窗权限
+    public static final String SYSTEM_ALERT_WINDOW = "android.permission.SYSTEM_ALERT_WINDOW";
+
+    /** 8.0危险权限：允许您的应用通过编程方式接听呼入电话。要在您的应用中处理呼入电话，您可以使用 acceptRingingCall() 函数 */
+    public static final String ANSWER_PHONE_CALLS = "android.permission.ANSWER_PHONE_CALLS";
+    /** 8.0危险权限：权限允许您的应用读取设备中存储的电话号码 */
+    public static final String READ_PHONE_NUMBERS = "android.permission.READ_PHONE_NUMBERS";
 
     public static final HashMap<String, String> permissionMap = new HashMap<>(24);
 
@@ -78,6 +85,12 @@ public class Permission {
 
         permissionMap.put(Permission.READ_EXTERNAL_STORAGE, "存储");
         permissionMap.put(Permission.WRITE_EXTERNAL_STORAGE, "存储");
+
+        permissionMap.put(Permission.REQUEST_INSTALL_PACKAGES, "安装");
+        permissionMap.put(Permission.SYSTEM_ALERT_WINDOW, "弹窗");
+
+        permissionMap.put(Permission.ANSWER_PHONE_CALLS, "自动接听");
+        permissionMap.put(Permission.READ_PHONE_NUMBERS, "读取电话号码");
     }
 }
 

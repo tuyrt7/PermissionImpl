@@ -27,14 +27,28 @@ dependencies {
 4.也可以自己处理拒绝权限后回调，在.requestPermission(PermissionListener)，自己在回调中处理提示  
 5.当勾选不再提示后，默认显示弹窗进入设置页面开启（未监听设置中是否开启权限）  
 6.如果有必须取得的权限，可以设置.isRejectNoCancelDialog(true):监听弹窗取消按钮后再次弹出窗口，直到获得权限  
+7.适配8.0的系统弹窗，应用内安装的特殊权限
 
 ## 使用方式
 
 ```
+ //声明权限组
+ String[] per = new String[]{
+         Manifest.permission.CAMERA,
+         Manifest.permission.CALL_PHONE
+ };
+
  PermissionImpl.newPermission()
                 .fragment(this)
                 //.activity(this)
-                .permission(per)
+                .permission(Permission.SYSTEM_ALERT_WINDOW)
+                .permission(Permission.REQUEST_INSTALL_PACKAGES)
+                //.permission(per)
+                .permission(Permission.WRITE_EXTERNAL_STORAGE)//add 权限
+                .isRejectDialog(true)//显示拒绝弹窗
+                .isRejectNoCancelDialog(false)//取消后继续弹窗
+                .isRejectWithNeverDialog(true)////显示拒绝弹窗
+                .isEnterAppSetting(true)//进入应用设置页（false进入系统权限设置，适配各大厂商sdk--未测试，测试过自己华为mate，发现设置true比较方便）
                 .requestPermission(new AdapterPermissionListener(){
                     @Override
                     public void onGranted() {
@@ -44,4 +58,4 @@ dependencies {
                 });
 ```
 
-## 有问题，欢迎指正。联系qq:1329546505
+##### 有问题，欢迎指正。联系邮箱：tuyrt7@163.com

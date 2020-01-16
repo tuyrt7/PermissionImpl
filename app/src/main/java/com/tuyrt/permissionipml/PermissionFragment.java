@@ -9,7 +9,9 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.permissionutil.AdapterPermissionListener;
+import com.permissionutil.Permission;
 import com.permissionutil.PermissionImpl;
+import com.permissionutil.PermissionSettingPage;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,25 +21,39 @@ public class PermissionFragment extends Fragment {
 
     private View root;
     private View mCheck;
-
-    String[] per = new String[]{
-            Manifest.permission.CAMERA,
-            Manifest.permission.CALL_PHONE
-    };
+    private View mSetting;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         root = View.inflate(getContext(), R.layout.fragment_permission, null);
         mCheck = root.findViewById(R.id.tv_check);
+        mSetting = root.findViewById(R.id.tv_setting);
         mCheck.setOnClickListener(this::check);
+        mSetting.setOnClickListener(this::setting);
         return root;
     }
+
+    private void setting(View view) {
+        PermissionSettingPage.launchAppDetailsSettings(getContext());
+    }
+
+    String[] per = new String[]{
+            Manifest.permission.CAMERA,
+            Manifest.permission.CALL_PHONE
+    };
 
     private void check(View view) {
         PermissionImpl.newPermission()
                 .fragment(this)
-                .permission(per)
+                .permission(Permission.SYSTEM_ALERT_WINDOW)
+                .permission(Permission.REQUEST_INSTALL_PACKAGES)
+                //.permission(per)
+                .permission(Permission.WRITE_EXTERNAL_STORAGE)//add 权限
+                .isRejectDialog(true)//显示拒绝弹窗
+                .isRejectNoCancelDialog(false)//取消后继续弹窗
+                .isRejectWithNeverDialog(true)////显示拒绝弹窗
+                .isEnterAppSetting(true)//进入应用设置页（false进入系统权限设置，适配各大厂商sdk--未测试，测试过自己华为mate，发现设置true比较方便）
                 .requestPermission(new AdapterPermissionListener(){
                     @Override
                     public void onGranted() {

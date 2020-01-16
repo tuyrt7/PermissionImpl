@@ -7,7 +7,7 @@ import java.util.List;
   管理回调
  */
 public class AdapterPermissionListener implements PermissionListener {
-    private static final String TAG = "Adapter";
+    private static final String TAG = "AdapterPermission";
     @Override
     public void onGranted() {
         Log.d(TAG, "onGranted: ");
@@ -16,6 +16,11 @@ public class AdapterPermissionListener implements PermissionListener {
     @Override
     public void onDenied(List<String> deniedPermission) {
         Log.d(TAG, "onDenied: ");
+    }
+
+    @Override
+    public void onSpecialDenied(List<String> deniedPermission) {
+        Log.d(TAG, "onSpecialDenied: ");
     }
 
     @Override
