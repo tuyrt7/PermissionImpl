@@ -1,3 +1,6 @@
+## 版本
+[![](https://jitpack.io/v/tuyrt7/PermissionImpl.svg)](https://jitpack.io/#tuyrt7/PermissionImpl)
+
 ## 效果图  
 
 ![一直弹窗申请，直到授权](https://upload-images.jianshu.io/upload_images/4430423-b58fe635864386cb.gif)
@@ -12,8 +15,6 @@ allprojects {
     repositories {
         ...
         maven { url 'https://jitpack.io' }
-        //or 审核通过后可去掉
-        //maven { url 'https://dl.bintray.com/tuyrt007/tuyrt/' }
     }
 }
 
@@ -26,7 +27,7 @@ dependencies {
     implementation 'com.github.tuyrt7:PermissionImpl:v1.0.2'
     
     //or
-    //implementation 'com.tuyrt:permissionimpl:1.0.0'
+    //implementation 'com.tuyrt:permissionimpl:1.0.2'
 }
 ```  
 
