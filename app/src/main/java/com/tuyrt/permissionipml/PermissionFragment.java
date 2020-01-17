@@ -46,9 +46,9 @@ public class PermissionFragment extends Fragment {
     private void check(View view) {
         PermissionImpl.newPermission()
                 .fragment(this)
-                .permission(Permission.SYSTEM_ALERT_WINDOW)
-                .permission(Permission.REQUEST_INSTALL_PACKAGES)
-                //.permission(per)
+                //.permission(Permission.SYSTEM_ALERT_WINDOW)
+                //.permission(Permission.REQUEST_INSTALL_PACKAGES)
+                .permission(per)
                 .permission(Permission.WRITE_EXTERNAL_STORAGE)//add 权限
                 .isRejectDialog(true)//显示拒绝弹窗
                 .isRejectNoCancelDialog(false)//取消后继续弹窗

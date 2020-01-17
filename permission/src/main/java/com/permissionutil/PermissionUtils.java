@@ -2,14 +2,12 @@ package com.permissionutil;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.text.TextUtils;
+import android.graphics.Color;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.widget.Toast;
-
-import java.util.Arrays;
 import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -104,9 +102,18 @@ public class PermissionUtils {
      @param listener         监听
      */
     public void showCancelDialog(List<String> list, boolean isRejectNoCancel, PermissionListener listener) {
-        String msg = String.format("%s 需要[%s]权限,是否开启权限。", XXPermission.getAppName(getContext()), XXPermission.permissionToName(list));
+        String str1 = XXPermission.getAppName(getContext());
+        String str2 = "需要 ";
+        String str3 = XXPermission.permissionToName(list);
+        String str4 = " 权限,是否开启权限。";
+        SpannableStringBuilder builder = new SpannableStringBuilder(str1 + str2 + str3 + str4);
+        builder.setSpan(new ForegroundColorSpan(Color.parseColor("#FF5153")),
+                0, (str1).length(), Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+        builder.setSpan(new ForegroundColorSpan(Color.parseColor("#FF5153")),
+                (str1 + str2).length(), (str1 + str2 + str3).length(), Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+
         new AlertDialog.Builder(getContext(), R.style.Theme_AppCompat_Light_Dialog_Alert)
-                .setMessage(msg)
+                .setMessage(builder)
                 .setPositiveButton("开启权限", (dialog, witch) -> {
                     dialog.dismiss();
                     requestPermissions(list, listener);
@@ -130,9 +137,18 @@ public class PermissionUtils {
      @param listener         监听
      */
     public void showNeverDialog(List<String> list, boolean isRejectNoCancel, boolean isEnterAppSetting, PermissionListener listener) {
-        String msg = String.format("%s 需要[%s]权限,是否进入设置手动打开。", XXPermission.getAppName(getContext()), XXPermission.permissionToName(list));
+        String str1 = XXPermission.getAppName(getContext());
+        String str2 = "需要 ";
+        String str3 = XXPermission.permissionToName(list);
+        String str4 = " 权限,是否进入设置手动打开。";
+        SpannableStringBuilder builder = new SpannableStringBuilder(str1 + str2 + str3 + str4);
+        builder.setSpan(new ForegroundColorSpan(Color.parseColor("#FF5153")),
+                0, (str1).length(), Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+        builder.setSpan(new ForegroundColorSpan(Color.parseColor("#FF5153")),
+                (str1 + str2).length(), (str1 + str2 + str3).length(), Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+
         new AlertDialog.Builder(getContext(), R.style.Theme_AppCompat_Light_Dialog_Alert)
-                .setMessage(msg)
+                .setMessage(builder)
                 .setPositiveButton("进入设置", (dialog, witch) -> {
                     dialog.dismiss();
                     if (isEnterAppSetting) {
