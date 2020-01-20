@@ -7,7 +7,7 @@
 ![GitHub Last Commit](https://img.shields.io/github/last-commit/tuyrt7/PermissionImpl.svg?label=commits "GitHub Last Commit")
 [![Author](https://img.shields.io/badge/Author-tuyrt7-red.svg "Author")](https://tuyrt7.github.io/ "Author")
 
-/github/downloads/:user/:repo/total
+
 ## 效果图  
 
 ![一直弹窗申请，直到授权](https://upload-images.jianshu.io/upload_images/4430423-b58fe635864386cb.gif)
