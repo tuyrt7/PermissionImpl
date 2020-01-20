@@ -1,7 +1,10 @@
 
 [![](https://jitpack.io/v/tuyrt7/PermissionImpl.svg)](https://jitpack.io/#tuyrt7/PermissionImpl)
-[![](https://jitpack.io/v/tuyrt7/PermissionImpl.svg)](https://jitpack.io/#tuyrt7/PermissionImpl)
+[![forks](https://img.shields.io/github/forks/tuyrt7/PermissionImpl.svg)](https://github.com/tuyrt7/PermissionImpl)
 [![Star](https://img.shields.io/github/stars/tuyrt7/PermissionImpl.svg)](https://github.com/tuyrt7/PermissionImpl)
+![issues](https://img.shields.io/github/issues/tuyrt7/PermissionImpl "issues")
+![GitHub Last Commit](https://img.shields.io/github/last-commit/tuyrt7/PermissionImpl.svg?label=commits "GitHub Last Commit")
+[![Author](https://img.shields.io/badge/Author-tuyrt7-red.svg "Author")](https://tuyrt7.github.io/ "Author")
 [![Download](https://api.bintray.com/packages/tuyrt007/tuyrt/permissionimpl/images/download.svg)](https://bintray.com/tuyrt007/tuyrt/permissionimpl/_latestVersion)
 
 ## 效果图  
