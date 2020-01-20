@@ -32,7 +32,7 @@ allprojects {
 dependencies {
     implementation 'com.github.tuyrt7:PermissionImpl:v1.0.2'
     
-    //or
+    //or 直接在添加这一句就OK
     //implementation 'com.tuyrt:permissionimpl:1.0.2'
 }
 ```  
