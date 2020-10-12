@@ -1,30 +1,12 @@
 ## 加入项目：
 
-1. jitpack依赖
-
-```
-根目录下build.gradle添加
-allprojects {
-	repositories {
-		...
-		maven { url 'https://jitpack.io' }
-	}
-}
-
-模块内：
-dependencies {
-	implementation 'com.github.tuyrt7:PermissionImpl:v1.0.3'
-}
-```  
-
-2. maven依赖
+gradle依赖
 
 ```
 dependencies {
 	implementation 'com.tuyrt:permissionimpl:1.0.3'
 }
 ```  
-
 
 ## permission模块：动态权限申请
 1.链式调用  

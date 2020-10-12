@@ -20,7 +20,11 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+    }
+
+    tasks.withType(Javadoc) {//解决lib中中文乱码问题
+        options.addStringOption('Xdoclint:none', '-quiet')
+        options.addStringOption('encoding', 'UTF-8')
     }
 }
 
