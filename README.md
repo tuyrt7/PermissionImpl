@@ -6,6 +6,7 @@ gradle依赖
 dependencies {
 	implementation 'com.tuyrt:permissionimpl:1.0.3'
 }
+
 ```  
 
 ## permission模块：动态权限申请
