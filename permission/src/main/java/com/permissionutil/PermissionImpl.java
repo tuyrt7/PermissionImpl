@@ -13,7 +13,7 @@ import androidx.fragment.app.FragmentActivity;
  */
 public class PermissionImpl {
 
-    private PermissionUtils mPermissionUtils;
+    private static PermissionUtils mPermissionUtils;
     /**
      存储传入数组权限
      */
@@ -24,7 +24,7 @@ public class PermissionImpl {
     private boolean isRejectDialog = true;
 
     /**
-     拒绝弹窗后点击取消建是否继续显示弹窗，要求赋予权限（默认为false）
+     拒绝弹窗后点击取消键是否继续显示弹窗，要求赋予权限（默认为false）
      */
     private boolean isRejectNoCancelDialog = false;
     /**
@@ -36,18 +36,18 @@ public class PermissionImpl {
      */
     private boolean isEnterAppSetting = true;
 
-    public static PermissionImpl newPermission() {
-        return new PermissionImpl();
+    private static PermissionImpl newPermission() {
+        return  new PermissionImpl();
     }
 
-    public PermissionImpl activity(FragmentActivity activity) {
+    public static PermissionImpl init(FragmentActivity activity) {
         mPermissionUtils = new PermissionUtils(activity);
-        return this;
+        return newPermission();
     }
 
-    public PermissionImpl fragment(Fragment fragment) {
+    public static PermissionImpl init(Fragment fragment) {
         mPermissionUtils = new PermissionUtils(fragment);
-        return this;
+        return newPermission();
     }
 
     /**
