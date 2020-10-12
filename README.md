@@ -9,7 +9,7 @@ gradle依赖
 
 ```
 dependencies {
-    //java 依赖（support分支）
+	// java 依赖（support分支）
 	implementation 'com.tuyrt:permissionimpl:1.0.3'
 	// kotlin 依赖 （master分支）
 	implementation 'com.tuyrt.permission:permissionimpl-kt:1.0.0'
@@ -17,7 +17,7 @@ dependencies {
 
 ```
 
-## permission模块：动态权限申请
+## JAVA版本 permission模块：动态权限申请
 1.链式调用
 2.可以activity/fragment申请（内部创建fragment继承自androidx.fragment.app.fragment）
 3.动态设置是否弹窗提示（内部默认显示）
