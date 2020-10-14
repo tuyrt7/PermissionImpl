@@ -9,15 +9,15 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
-  一些公共通用的方法
+ * 一些公共通用的方法
  */
 public class XXPermission {
 
     /**
-     把权限list转变成字符串说明
-
-     @param list
-     @return 如：相机、联系人
+     * 把权限list转变成字符串说明
+     *
+     * @param list
+     * @return 如：相机、联系人
      */
     public static String permissionToName(List<String> list) {
         StringBuilder sb = new StringBuilder();
@@ -40,8 +40,9 @@ public class XXPermission {
     }
 
     /**
-      获取应用名称
-     @return
+     * 获取应用名称
+     *
+     * @return
      */
     public static String getAppName(Context context) {
         String appName = "";
@@ -56,25 +57,21 @@ public class XXPermission {
     }
 
     /**
-
-     @param stringList
-     @return
+     * @param stringList
      */
     public static String[] listToStringArray(List<String> stringList) {
         return stringList.toArray(new String[stringList.size()]);
     }
 
     /**
-
-     @param strings
-     @return
+     * @param strings
      */
     public static List<String> stringArrayToList(String[] strings) {
         return Arrays.asList(strings);
     }
 
     /**
-     检查权限是否为空
+     * 检查权限是否为空
      */
     public static boolean hasEmpty(List<String> strings) {
         boolean hasEmpty = false;
@@ -93,7 +90,7 @@ public class XXPermission {
 
 
     /**
-     返回应用程序在清单文件中注册的权限
+     * 返回应用程序在清单文件中注册的权限
      */
     private static List<String> getManifestPermissions(Context context) {
         PackageManager pm = context.getPackageManager();
@@ -106,7 +103,7 @@ public class XXPermission {
 
 
     /**
-     检测权限有没有在清单文件中注册
+     * 检测权限有没有在清单文件中注册
      */
     public static void checkPermissions(Context context, List<String> requestPermissions) {
         List<String> manifest = getManifestPermissions(context);

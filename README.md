@@ -4,7 +4,7 @@ gradle依赖
 
 ```
 dependencies {
-	implementation 'com.tuyrt:permissionimpl:1.0.3'
+	implementation 'com.tuyrt:permissionimpl:1.0.4'
 }
 
 ```  
@@ -18,6 +18,7 @@ dependencies {
 6.如果有必须取得的权限，可以设置.isRejectNoCancelDialog(true):监听弹窗取消按钮后再次弹出窗口，直到获得权限  
 7.适配8.0的系统弹窗，应用内安装的特殊权限
 8.拒绝弹窗的内部逻辑已经处理完成，只需要通过函数 isRejectDialog（）、isRejectNoCancelDialog（）、传入对应的配置就行
+9.拒绝弹窗的内容，用显著颜色标识如图 gif/xx.jpg
 
 ## 使用方式
 
@@ -35,6 +36,7 @@ dependencies {
                 .isRejectNoCancelDialog(false)//显示拒绝弹窗,点击取消后,是否继续弹窗，表示不获取权限不往下执行（一般用于核心功能的关键权限，不授权不给往下执行）
                 .isRejectWithNeverDialog(true)//显示拒绝(永久禁止)弹窗（此弹窗提示用户永久禁止权限后，需要进入设置页手动通过权限）
                 .isEnterAppSetting(true)//进入应用设置页（false进入系统权限设置，适配各大厂商sdk--测试过自己华为mate10，vivoY27，发现设置true比较方便）
+                .dialogTextColor(R.color.colorPrimary)//弹窗内容的文字颜色
                 .requestPermission(new AdapterPermissionListener() {
                     //同意所有权限
                     @Override

@@ -30,5 +30,5 @@ dependencies {
 
     implementation project(path: ':permission')
 
-//    implementation 'com.tuyrt:permissionimpl:1.0.3'
+//    implementation 'com.tuyrt:permissionimpl:1.0.4'
 }
