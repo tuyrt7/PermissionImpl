@@ -48,6 +48,7 @@ public class PermissionFragment extends Fragment {
                 .permission(Permission.SYSTEM_ALERT_WINDOW,Permission.REQUEST_INSTALL_PACKAGES)
                 .permission(per)
                 .permission(Permission.WRITE_EXTERNAL_STORAGE)//add 权限
+                .dialogTextColor(R.color.colorAccent)
                 .isRejectDialog(true)//显示拒绝弹窗
                 .isRejectNoCancelDialog(false)//取消后继续弹窗
                 .isRejectWithNeverDialog(true)////显示拒绝弹窗

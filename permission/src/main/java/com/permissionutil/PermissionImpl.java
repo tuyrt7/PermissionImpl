@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -35,6 +36,8 @@ public class PermissionImpl {
      * 是否进入设置页（true 应用设置 /false 系统权限设置，系统权限设置页兼容过各系统厂商的SDK）
      */
     private boolean isEnterAppSetting = true;
+
+    private int dialogTextColor = -1;
 
     private static PermissionImpl newPermission() {
         return new PermissionImpl();
@@ -101,6 +104,11 @@ public class PermissionImpl {
         return this;
     }
 
+    public PermissionImpl dialogTextColor(@ColorRes int color) {
+        dialogTextColor = color;
+        return this;
+    }
+
     /**
      * 正式申请
      *
@@ -110,6 +118,7 @@ public class PermissionImpl {
         checkNull(mPermissionUtils);
         checkNullPermission();
 
+        mPermissionUtils.setDialogTextColor(dialogTextColor);
         mPermissionUtils.requestPermissions(permissions, new PermissionListener() {
             @Override
             public void onGranted() {

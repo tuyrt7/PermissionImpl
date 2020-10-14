@@ -35,6 +35,8 @@ public class PermissionUtils {
 
     private Lazy<PermissionFragment> mPermissionFragment;
 
+    private int mDialogTextColor;
+
     public PermissionUtils(@NonNull final Fragment fragment) {
         mPermissionFragment = getLazySingleton(fragment.getChildFragmentManager());
     }
@@ -86,6 +88,7 @@ public class PermissionUtils {
         return context;
     }
 
+
     @FunctionalInterface
     public interface Lazy<V> {
         V get();
@@ -98,13 +101,19 @@ public class PermissionUtils {
      * @param listener    授权回调的监听
      */
     public void requestPermissions(List<String> permissions, PermissionListener listener) {
-        if (XXPermission.hasEmpty(permissions))
+        if (XXPermission.hasEmpty(permissions)) {
             throw new IllegalArgumentException("permission can't be null");
+        }
         //检查是否在清单文件中注册
         XXPermission.checkPermissions(getContext(), permissions);
 
         mPermissionFragment.get().init(listener, permissions);
         mPermissionFragment.get().requestPermissions();
+    }
+
+
+    public void setDialogTextColor(int dialogTextColor) {
+        mDialogTextColor = dialogTextColor;
     }
 
     /**
@@ -183,11 +192,15 @@ public class PermissionUtils {
 //        span.setSpan(new RelativeSizeSpan(2.0f), 23, 29, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         //设置字体颜色
-        span.setSpan(new ForegroundColorSpan(getColorPrimary()), appName.length() + 4, appName.length() + 6 + permissionStr.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        span.setSpan(new ForegroundColorSpan(mDialogTextColor == -1 ? getColorPrimary() : getDialogTextColor()), appName.length() + 4, appName.length() + 6 + permissionStr.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 //        //设置字体背景颜色
 //        span.setSpan(new BackgroundColorSpan(Color.YELLOW), 37, 45, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         return span;
+    }
+
+    private int getDialogTextColor() {
+        return getContext().getResources().getColor(mDialogTextColor);
     }
 
     public int getColorPrimary() {
