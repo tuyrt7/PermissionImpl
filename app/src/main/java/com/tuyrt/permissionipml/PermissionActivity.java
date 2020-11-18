@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.permissionutil.AdapterPermissionListener;
+import com.permissionutil.Permission;
 import com.permissionutil.PermissionImpl;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,14 @@ public class PermissionActivity extends AppCompatActivity {
                 .commit();
 
         findViewById(R.id.tv_checkPermission).setOnClickListener(v -> applyPermission());
+
+        PermissionImpl.init(this).permission(Permission.CAMERA)
+                .requestPermission(new AdapterPermissionListener() {
+                    @Override
+                    public void onGranted() {
+
+                    }
+                });
     }
 
     String[] per = new String[]{

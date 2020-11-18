@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * 一些公共通用的方法
  */
-public class XXPermission {
+class XXPermission {
 
     /**
      * 把权限list转变成字符串说明

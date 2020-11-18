@@ -6,12 +6,11 @@ import java.util.List;
 /**
   管理回调
  */
-public class AdapterPermissionListener implements PermissionListener {
+public abstract class AdapterPermissionListener implements PermissionListener {
     private static final String TAG = "AdapterPermission";
-    @Override
-    public void onGranted() {
-        Log.d(TAG, "onGranted: ");
-    }
+
+//    @Override
+//    public void onGranted() {}
 
     @Override
     public void onDenied(List<String> deniedPermission) {
