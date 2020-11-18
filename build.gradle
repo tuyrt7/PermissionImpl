@@ -7,7 +7,7 @@ buildscript {
         
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.2'
+        classpath 'com.android.tools.build:gradle:4.1.1'
         //使用以下两行配置替换bintray-release
         classpath "guru.stefma.bintrayrelease:bintrayrelease:1.1.2"
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:0.9.17"
