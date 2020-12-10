@@ -92,5 +92,29 @@ public class Permission {
         permissionMap.put(Permission.ANSWER_PHONE_CALLS, "自动接听");
         permissionMap.put(Permission.READ_PHONE_NUMBERS, "读取电话号码");
     }
+
+    public static final class Group {
+
+        /** 日历 */
+        public static final String[] CALENDAR = new String[]{
+                Permission.READ_CALENDAR,
+                Permission.WRITE_CALENDAR};
+
+        /** 联系人 */
+        public static final String[] CONTACTS = new String[]{
+                Permission.READ_CONTACTS,
+                Permission.WRITE_CONTACTS,
+                Permission.GET_ACCOUNTS};
+
+        /** 位置 */
+        public static final String[] LOCATION = new String[]{
+                Permission.ACCESS_FINE_LOCATION,
+                Permission.ACCESS_COARSE_LOCATION};
+
+        /** 存储 */
+        public static final String[] STORAGE = new String[]{
+                Permission.READ_EXTERNAL_STORAGE,
+                Permission.WRITE_EXTERNAL_STORAGE};
+    }
 }
 

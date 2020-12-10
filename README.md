@@ -4,7 +4,7 @@ gradle依赖
 
 ```
 dependencies {
-	implementation 'com.tuyrt:permissionimpl:1.0.4'
+	implementation 'com.tuyrt:permissionimpl:1.0.6'
 }
 
 ```  
@@ -33,9 +33,9 @@ dependencies {
                 .permission(Permission.SYSTEM_ALERT_WINDOW,Permission.WRITE_EXTERNAL_STORAGE)//添加权限
                 //.permission(per)
                 .isRejectDialog(true)//显示拒绝弹窗
-                .isRejectNoCancelDialog(false)//显示拒绝弹窗,点击取消后,是否继续弹窗，表示不获取权限不往下执行（一般用于核心功能的关键权限，不授权不给往下执行）
-                .isRejectWithNeverDialog(true)//显示拒绝(永久禁止)弹窗（此弹窗提示用户永久禁止权限后，需要进入设置页手动通过权限）
-                .isEnterAppSetting(true)//进入应用设置页（false进入系统权限设置，适配各大厂商sdk--测试过自己华为mate10，vivoY27，发现设置true比较方便）
+                .isRejectNoCancelDialog(false)//显示拒绝弹窗,点击取消后,是否继续弹窗，表示不获取权限不往下执行（默认true，一般用于核心功能的关键权限，不授权不给往下执行）
+                .isRejectWithNeverDialog(true)//显示拒绝(永久禁止)弹窗（默认true，此弹窗提示用户永久禁止权限后，需要进入设置页手动通过权限）
+                .isEnterAppSetting(true)//进入应用设置页（默认true，进入系统权限设置，适配各大厂商sdk--测试过自己华为mate10，vivoY27，A33开发板，魅族pro6s）
                 .dialogTextColor(R.color.colorPrimary)//弹窗内容的文字颜色
                 .requestPermission(new AdapterPermissionListener() {
                     //同意所有权限

@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'guru.stefma.bintrayrelease'
 
-version="1.0.5" //版本号
+version="1.0.7" //版本号
 group = "com.tuyrt" //jcenter的路径，如：compile 'com.squareup.okhttp3:okhttp:3.8.1' 所填写的就是 com.squareup
 publish {
     repoName = 'tuyrt'
