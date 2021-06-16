@@ -28,7 +28,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
 
-    //implementation project(path: ':permission')
+    implementation project(path: ':permission')
     //implementation 'com.tuyrt:permissionimpl:1.0.7'
-    implementation 'com.github.tuyrt7:PermissionImpl:1.0.0'
+    //implementation 'com.github.tuyrt7:PermissionImpl:1.0.1'
 }
