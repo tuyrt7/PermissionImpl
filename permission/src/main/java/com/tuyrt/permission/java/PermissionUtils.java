@@ -28,12 +28,8 @@ public class PermissionUtils {
 
     private int mDialogTextColor;
 
-    public PermissionUtils(@NonNull final Fragment fragment) {
-        mPermissionFragment = getLazySingleton(fragment.getChildFragmentManager());
-    }
-
-    public PermissionUtils(@NonNull final FragmentActivity activity) {
-        mPermissionFragment = getLazySingleton(activity.getSupportFragmentManager());
+    public PermissionUtils(@NonNull final FragmentManager fragmentManager) {
+        mPermissionFragment = getLazySingleton(fragmentManager);
     }
 
     @NonNull

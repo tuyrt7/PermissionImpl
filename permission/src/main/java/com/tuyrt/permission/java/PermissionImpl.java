@@ -10,13 +10,14 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
 /**
  * 模块外层调用层
  */
 public class PermissionImpl {
 
-    private static PermissionUtils mPermissionUtils;
+    private PermissionUtils mPermissionUtils;
     /**
      * 存储传入数组权限
      */
@@ -41,18 +42,16 @@ public class PermissionImpl {
 
     private int dialogTextColor = -1;
 
-    private static PermissionImpl newPermission() {
-        return new PermissionImpl();
+    private PermissionImpl(FragmentManager fragmentManager) {
+        mPermissionUtils = new PermissionUtils(fragmentManager);
     }
 
     public static PermissionImpl init(FragmentActivity activity) {
-        mPermissionUtils = new PermissionUtils(activity);
-        return newPermission();
+        return new PermissionImpl(activity.getSupportFragmentManager());
     }
 
     public static PermissionImpl init(Fragment fragment) {
-        mPermissionUtils = new PermissionUtils(fragment);
-        return newPermission();
+        return new PermissionImpl(fragment.getChildFragmentManager());
     }
 
     /**
