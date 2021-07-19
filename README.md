@@ -11,7 +11,7 @@ repositories {
 
 // 模块 gradle
 dependencies {
-	implementation 'com.github.tuyrt7:PermissionImpl:1.0.0'
+	implementation 'com.github.tuyrt7:PermissionImpl:1.0.2'
 }
 
 ```  
